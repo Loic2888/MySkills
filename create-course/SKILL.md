@@ -57,6 +57,27 @@ Voir [structure-reference.md](structure-reference.md) pour le squelette HTML/CSS
 
 Avant de livrer, relis chaque leçon et pose-toi la question : "Si quelqu'un ne connaît rien à ce sous-sujet, repart-il avec une compréhension réelle et opérationnelle, ou juste un vocabulaire ?" Étoffe toute section qui reste superficielle (moins de 3-4 paragraphes substantiels, ou sans exemple concret).
 
-## Étape 6 — Livraison
+## Étape 6 — Livraison (écriture module par module — OBLIGATOIRE)
 
-Assemble le tout dans un seul fichier HTML autonome (CSS et JS inclus, pas de dépendances locales hormis CDN pour la coloration de code). Sauvegarde-le, puis indique à l'utilisateur où l'ouvrir. Si la formation est vraiment volumineuse (15+ leçons), propose plutôt un fichier par module + une page `index.html` qui sert de sommaire/navigation.
+**Ne génère JAMAIS le fichier HTML en un seul bloc.** Écris-le en plusieurs appels Write/Edit successifs pour rester sous la limite de tokens par appel.
+
+### 6a — Squelette initial
+Crée le fichier avec un premier appel Write contenant uniquement :
+- Le `<!DOCTYPE html>`, `<head>` complet (CSS inline, CDN coloration syntaxique, styles de la direction visuelle choisie)
+- Le JS de navigation (sidebar, progression, highlight)
+- La `<body>` avec la sidebar (liste de tous les modules/leçons en liens), la zone de contenu principale **vide** (`<div id="content"></div>`)
+- Le premier module entier (toutes ses leçons)
+
+### 6b — Ajout des modules suivants
+Pour chaque module restant (du 2e jusqu'au dernier), fais **un appel Edit séparé** qui insère le bloc HTML du module avant la balise de fermeture `</div>` du contenu ou de `</body>`. Ne recopie pas l'intégralité du fichier — utilise uniquement le remplacement ciblé de la balise de fin pour insérer le nouveau contenu.
+
+Exemple de pattern pour chaque module :
+```
+old_string: "<!-- MODULE_PLACEHOLDER -->"
+new_string: "<section id='moduleN'>...</section>\n<!-- MODULE_PLACEHOLDER -->"
+```
+
+### 6c — Finalisation
+Un dernier appel Edit pour retirer le `<!-- MODULE_PLACEHOLDER -->` et fermer proprement `</body></html>`.
+
+Après écriture, indique à l'utilisateur le chemin du fichier et comment l'ouvrir dans son navigateur.
