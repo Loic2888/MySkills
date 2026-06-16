@@ -23,6 +23,16 @@ Generates a complete, in-depth training course on any subject as a standalone na
 
 **Usage:** `/create-course <subject>`
 
+### `code-documentation`
+Documents an entire codebase by injecting plain-English inline comments directly into source files — project overview (README), file headers, class headers, and per-function comments — without ever altering logic. Works across all major languages and reads `CLAUDE.md` first as the authoritative source when present.
+
+**Usage:** `/code-documentation` (or ask Claude to "document this project")
+
+### `find-skills`
+Helps you discover and install skills from the open agent skills ecosystem ([skills.sh](https://skills.sh/)). Searches by need, checks the leaderboard, verifies quality, then presents options and installs only after your explicit confirmation.
+
+**Usage:** `/find-skills` (or ask "is there a skill for X?")
+
 ---
 
 ## How to use a skill
