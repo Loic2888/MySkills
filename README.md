@@ -33,6 +33,11 @@ Helps you discover and install skills from the open agent skills ecosystem ([ski
 
 **Usage:** `/find-skills` (or ask "is there a skill for X?")
 
+### `security-audit`
+Cloudflare's multi-agent security audit workflow, vendored from [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill) (MIT, commit `c1c8a8c`). Six phases — reconnaissance, coverage-led hunting, adversarial validation, structured `findings.json`, independent verification, reports. Heavier and stricter than `secure-me`: use it for full audits of sensitive projects. Needs Node.js; target code is only executed inside an OS-enforced sandbox, otherwise leads stay `needs_validation`.
+
+**Usage:** "security audit this codebase" (full mode), or a security question (guidance mode)
+
 ---
 
 ## How to use a skill
