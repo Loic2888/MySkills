@@ -38,6 +38,11 @@ Cloudflare's multi-agent security audit workflow, vendored from [cloudflare/secu
 
 **Usage:** "security audit this codebase" (full mode), or a security question (guidance mode)
 
+### `MyPullRequest/` — `review-md` and `create-pr`
+Two skills for agent-era code review, inspired by [how the Claude Code team does review](https://claude.dev/blog/solving-code-review-at-anthropic/). `review-md` drafts a project-specific `REVIEW.md` from the code and git history (reverts, fix commits, churn, sensitive paths like auth, payments, migrations and CI), with evidence for every rule, for you to validate. `create-pr` uses that `REVIEW.md` to run the project's checks, get a fresh-context review of the diff, fix important findings (3 rounds max), set a risk tier from the files touched, write a PR description with tests, risk and revert plan, then push and open the PR with `gh` after confirmation. See [MyPullRequest/README.md](MyPullRequest/README.md).
+
+**Usage:** `/review-md`, then `/create-pr [base] [--draft]`
+
 ---
 
 ## How to use a skill
